@@ -1,0 +1,17 @@
+<div class="row" *ngIf="testpsies">
+  <div class="col-sm-4" *ngFor="let t of testpsies._embedded.testpsies">
+    <div class="small-box bg-info" style="width: 18rem;">
+      <div class="inner">
+        <p>{{t.topic}}</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-file-alt"></i>
+      </div>
+      <a (click)="onGetTest(t)" class="small-box-footer" style="cursor: pointer">
+        Start The Test <i class="fas fa-arrow-circle-right"></i>
+      </a>
+    </div>
+
+  </div>
+</div>
+

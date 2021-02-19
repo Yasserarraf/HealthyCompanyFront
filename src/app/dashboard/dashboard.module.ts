@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
-import { TestpsyComponent } from './testpsy/testpsy.component';
-import { TestpsycompletedComponent } from './testpsycompleted/testpsycompleted.component';
+
 import { SingleTestComponent } from './single-test/single-test.component';
-import {SinglequestionComponent} from './singlequestion/singlequestion.component';
 import {FormsModule} from '@angular/forms';
+import {TestpsyComponent} from './testpsy/testpsy.component';
+import { AddTestComponent } from './add-test/add-test.component';
+import { HistoryComponent } from './history/history.component';
+import { HistorySingleTestComponent } from './history-single-test/history-single-test.component';
 
 
 
@@ -17,9 +19,11 @@ import {FormsModule} from '@angular/forms';
     DashboardComponent,
     ProfileComponent,
     TestpsyComponent,
-    TestpsycompletedComponent,
     SingleTestComponent,
-    SinglequestionComponent],
+    AddTestComponent,
+    HistoryComponent,
+    HistorySingleTestComponent,
+   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,

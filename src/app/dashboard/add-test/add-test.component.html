@@ -1,0 +1,129 @@
+<!-- Steps form -->
+<div class="card">
+  <div class="card-body ">
+    <!-- Stepper -->
+    <div class="steps-form">
+      <div class="steps-row setup-panel" >
+        <div class="steps-step">
+          <a  type="button" class="btn btn-success btn-circle step-0"  (click)="handleClick($event,0)">1</a>
+          <p>Topic</p>
+        </div>
+        <div class="steps-step">
+          <a  type="button" class="btn btn-secondary btn-circle step-1"  disabled="disabled" (click)="handleClick($event,1)">2</a>
+          <p>building the Test</p>
+        </div>
+        <div class="steps-step">
+          <a  type="button" class="btn btn-secondary btn-circle step-2"   disabled="disabled" (click)="handleClick($event,2)">3</a>
+          <p>Review Test</p>
+        </div>
+      </div>
+    </div>
+
+      <hr>
+
+      <div class="row stp" style=" width:100%">
+        <!-- First Step -->
+          <div class="col-md-12 setup-content "id="step-0" >
+            <div class="form-group md-form">
+              <label for="yourName" data-error="wrong" data-success="right"*ngIf="topic" >Test Topic : {{topic}}</label>
+              <input id="yourName" type="text" required="required" [(ngModel)]="topic"  class="form-control ">
+            </div>
+          </div>
+        <!-- Second Step -->
+          <div class="col-md-12 setup-content " id="step-1">
+            <div class="row justify-content-start">
+              <div class="col-4">
+                <div class="row align-items-end">
+                  <div class="col-12">
+                    <div class="form-group md-form ">
+                      <label for="companyName" data-error="wrong" data-success="right" class="float-left">Question</label>
+
+                      <input id="companyName" type="text" required="required" [(ngModel)]="question" class="form-control validate">
+                    </div>
+                  </div>
+                  <div class="col-12  ">
+                    <div class="form-group md-form ">
+                      <label for="companyName" data-error="wrong" data-success="right" class="float-left">Reponse</label>
+                      <a class="btn btn-outline-info  btn-circle float-right my-2" type="button" (click)="onNewRep()">
+                        <i class="fa fa-plus"></i>
+                      </a>
+                      <input id="compan" type="text" required="required" class="form-control" [(ngModel)]="reponse">
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="col-8">
+                <ul class="list-group "style="height:300px;overflow:hidden;overflow-y:scroll;">
+                  <li class="list-group-item list-group-item-info"*ngIf="reponses" ><span>Q : </span> {{question}} </li>
+                  <li class="list-group-item"*ngFor="let r of reponses" > {{r}}</li>
+                </ul>
+
+
+              </div>
+
+            </div>
+
+          </div>
+        <!-- Third Step -->
+          <div class="col-md-12  setup-content "id="step-2" style="min-width: auto;height: 300px;overflow: hidden;overflow-y: scroll">
+           <div class="row" *ngIf="data.length>0">
+             <h5 class="pl-0 mx-2 mb-2" >Test Topic : {{data[0].topic}}</h5>
+           </div>
+
+             <div class="row" id="accordion" *ngIf="data.length>0" >
+               <div class="col-4" *ngFor="let qr of data[0].questions" >
+                 <div class="card">
+                   <div class="card-header align-content-center" id="{{qr.content}}">
+                     <h5 class="float-left">
+                       <a class="btn btn-link font-weight-bold " data-toggle="collapse"  attr.data-target="{{'#c'+qr.content}}" aria-expanded="true"   attr.aria-controls="{{'c'+qr.content}}">
+                         <i class="far fa-question-circle"></i>
+                         {{qr.content}}
+                       </a>
+                     </h5>
+                     <a class="btn btn-link float-right" data-toggle="collapse"  attr.data-target="{{'#e'+qr.content}}" aria-expanded="true"   attr.aria-controls="{{'e'+qr.content}}"><i class="far fa-edit"></i></a>
+
+                   </div>
+
+                   <div id="{{'c'+qr.content}}" class="collapse " attr.aria-labelledby="{{qr.content}}" data-parent="#accordion">
+                     <div class="card-body">
+                       <div class="row pl-2"*ngFor="let r of qr.reponses">
+                         <div>{{r.content}}</div>
+                       </div>
+                     </div>
+                   </div>
+<!--                   <div id="{{'e'+qr.content}}" class="collapse " attr.aria-labelledby="{{qr.content}}" data-parent="#accordion">-->
+<!--                     <div class="card-body">-->
+<!--                       <h6>Question</h6>-->
+<!--                       <div class="row pl-2">-->
+<!--                         <input  type="text" required="required" class="form-control" [value]="qr.content">-->
+<!--                       </div>-->
+<!--                       <hr>-->
+<!--                       <h6>Reponses</h6>-->
+<!--                       <div class="row pl-2"*ngFor="let r of qr.reponses">-->
+<!--                         <input  type="text" required="required" class="form-control" [value]="r">-->
+<!--                       </div>-->
+<!--                     </div>-->
+<!--                   </div>-->
+                 </div>
+               </div>
+
+            </div>
+
+
+
+          </div>
+      </div>
+
+
+
+  </div>
+  <div class="card-footer ">
+    <button *ngIf="firstStep" class="btn btn-info btn-rounded  float-left " type="button" (click)="prvBtn()">Previous</button>
+    <button *ngIf="secondStep" class="btn btn-secondary btn-rounded  addQst " type="button" (click)="SaveQR()" ><i class="fa fa-plus"></i> Question</button>
+    <button *ngIf="!finalStep" class="btn btn-info btn-rounded  float-right " type="button" (click)="nxtBtn()" >Next</button>
+    <button *ngIf="finalStep" class="btn btn-success btn-rounded  float-right " type="button" (click)="FinishBtn()">Finish</button>
+  </div>
+</div>
+<!-- Steps form -->

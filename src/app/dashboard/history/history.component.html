@@ -1,15 +1,15 @@
-<div class="container-fluid">
+<div class="container-fluid" >
   <div class="row ">
     <div class="col-6 ">
-      <h4>Available Tests Psy</h4>
+      <h4>Tests PSY History</h4>
     </div>
   </div>
   <hr>
-  <div class="row" *ngIf="testpsies">
-    <div class="col-sm-4" *ngFor="let t of testpsies._embedded.testpsies">
-      <div class="small-box bg-info" style="width: 18rem;">
+  <div class="row" *ngIf="testpsiesCompleted">
+    <div class="col-sm-4" *ngFor="let t of testpsiesCompleted">
+      <div class="small-box bg-gradient-success" style="width: 18rem;">
         <div class="inner">
-          <p>{{t.topic}}</p>
+          <p>{{t.test.topic}}</p>
         </div>
         <div class="icon">
           <i class="fas fa-file-alt"></i>
@@ -22,5 +22,4 @@
     </div>
   </div>
 </div>
-
 

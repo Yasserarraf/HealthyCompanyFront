@@ -1,0 +1,39 @@
+
+  <div class="card "id="htmlData">
+
+    <div class="card-header">
+      Test Topic : {{testCompleted.test.topic}}
+    </div>
+
+    <div class="card-body"style="min-height: 50vh">
+      <div class="row"*ngFor="let q of testCompleted.reponses">
+        <div class="col-12">
+          <h5 class="my-2">{{q.question}}</h5>
+        </div>
+        <hr>
+
+
+        <div class="col-12" >
+          <div class="form-group ">
+            <div   class="form-check my-4"  >
+              <input class="form-check-input " checked type="radio"  disabled  >
+              <label class="form-check-label">{{q.reponse}}</label>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+  <div class="row justify-content-center">
+    <button class="btn btn-success " (click)="SavePDF()">Download Test</button>
+  </div>
+
+
+
+

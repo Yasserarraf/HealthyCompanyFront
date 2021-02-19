@@ -8,8 +8,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./testpsy.component.css']
 })
 export class TestpsyComponent implements OnInit {
+  private mode: string;
 
   constructor(private testpsyService:TestpsyService,private router:Router) { }
+
   testpsies;
 
   ngOnInit() {
@@ -23,10 +25,12 @@ export class TestpsyComponent implements OnInit {
 
   onGetTest(t: any) {
     let url = t._links.questions.href;
-    this.testpsyService.currentTest = t;
-    console.log(this.testpsyService.currentTest);
+    this.testpsyService.setTestUrl(t._links.self.href);
+    this.testpsyService.setTestTopic(t.topic);
+
     this.router.navigateByUrl("dashboard/singleTest/"+btoa(url));
   }
+
 
 
 }

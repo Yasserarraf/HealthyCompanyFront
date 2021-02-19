@@ -1,0 +1,36 @@
+
+
+
+header.masthead {
+
+
+
+  background: linear-gradient(to bottom, rgb(28, 57, 90) 10%, rgba(48, 46, 46, 0.8) 95%);
+  /*background-image : url("../../assets/img/bg-masthead.png");*/
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: initial;
+  background-size: cover;
+}
+header.masthead h1 {
+  font-size: 2.25rem;
+}
+@media (min-width: 992px) {
+  header.masthead {
+    min-height:100vh;
+    max-height: 100vh;
+
+  }
+  header.masthead p {
+    font-size: 1.15rem;
+  }
+  header.masthead h1 {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 1200px) {
+  header.masthead h1 {
+    font-size: 3.5rem;
+  }
+}
